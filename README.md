@@ -1,4 +1,4 @@
-[![Symfony](https://github.com/kaevdokimov/symfony6-skeleton/actions/workflows/symfony.yml/badge.svg?branch=main)](https://github.com/kaevdokimov/symfony6-skeleton/actions/workflows/symfony.yml)
+[![Symfony](git@github.com:andrey-bar/symfony6.git/actions/workflows/symfony.yml/badge.svg?branch=main)](git@github.com:andrey-bar/symfony6.git/actions/workflows/symfony.yml)
 
 Symfony 6.4 Skeleton with
 
