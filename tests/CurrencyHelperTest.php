@@ -37,7 +37,7 @@ class CurrencyHelperTest extends TestCase
     {
         $helper = new CurrencyHelper();
 
-        $money = $helper->addValues(Money::USD(10), Money::USD(20));
-        $this->assertEquals(30, $money->getAmount());
+        $sum = $helper->addValues(1, '1.2');
+        $this->assertEquals('2.2', $sum);
     }
 }

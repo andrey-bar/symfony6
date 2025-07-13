@@ -25,13 +25,28 @@ class CurrencyHelper
         return (new ISOCurrencies())->numericCodeFor($amount->getCurrency());
     }
 
-    public function addValues(Money $a, Money $b): Money
+    public function addValues(mixed $a, mixed $b): string
     {
-        return $a->add($b);
+        $moneyA = new Money($this->processValue($a), 'RUB');
+
+        $moneyB = new Money($this->processValue($b), 'RUB');
+
+        $moneyResult = $moneyA->add($moneyB);
+
+        return $moneyResult->getAmount();
     }
 
     public function subtarctValues(Money $a, Money $b): Money
     {
         return $a->subtract($b);
+    }
+
+    private function processValue(int|float|string $value): int|string
+    {
+        if (is_int($value)) {
+            return $value * 100;
+        }
+
+        return (string) $value;
     }
 }
