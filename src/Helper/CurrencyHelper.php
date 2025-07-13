@@ -42,12 +42,13 @@ class CurrencyHelper
         return $a->subtract($b);
     }
 
-    private function processValue(int|float|string $value): int|string
+    private function processValue(int|float|string $value): int
     {
-        if (is_int($value)) {
+        /*if (is_int($value)) {
             return $value * 100;
         }
 
-        return (string) $value;
+        return (string) $value;*/
+        return $value * 100;
     }
 }
