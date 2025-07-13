@@ -45,7 +45,7 @@ class CurrencyHelperTest extends TestCase
     {
         $helper = new CurrencyHelper();
 
-        $res = $helper->subtarctValues(1, '1.2');
+        $res = $helper->subtarctValues(2, '1.2');
         $this->assertEquals(0.8, $res);
     }
 }
