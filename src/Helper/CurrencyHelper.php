@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Helper;
 
 use Money\Currencies\ISOCurrencies;
+use Money\Currency;
 use Money\Money;
 
 class CurrencyHelper
@@ -27,9 +28,9 @@ class CurrencyHelper
 
     public function addValues(mixed $a, mixed $b): string
     {
-        $moneyA = new Money($this->processValue($a), 'RUB');
+        $moneyA = new Money($this->processValue($a), new Currency('RUB'));
 
-        $moneyB = new Money($this->processValue($b), 'RUB');
+        $moneyB = new Money($this->processValue($b), new Currency('RUB'));
 
         $moneyResult = $moneyA->add($moneyB);
 
