@@ -26,7 +26,7 @@ class CurrencyHelper
         return (new ISOCurrencies())->numericCodeFor($amount->getCurrency());
     }
 
-    public function addValues(mixed $a, mixed $b): string
+    public function addValues(mixed $a, mixed $b): float
     {
         $moneyA = new Money($this->processValue($a), new Currency('RUB'));
 
@@ -34,7 +34,7 @@ class CurrencyHelper
 
         $moneyResult = $moneyA->add($moneyB);
 
-        return $moneyResult->getAmount();
+        return ((int) $moneyResult->getAmount()) / 100;
     }
 
     public function subtarctValues(Money $a, Money $b): Money
