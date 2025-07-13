@@ -40,4 +40,12 @@ class CurrencyHelperTest extends TestCase
         $sum = $helper->addValues(1, '1.2');
         $this->assertEquals(2.2, $sum);
     }
+
+    public function testSutractValues(): void
+    {
+        $helper = new CurrencyHelper();
+
+        $res = $helper->subtarctValues(1, '1.2');
+        $this->assertEquals(0.8, $res);
+    }
 }

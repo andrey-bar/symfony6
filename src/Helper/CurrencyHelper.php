@@ -26,20 +26,22 @@ class CurrencyHelper
         return (new ISOCurrencies())->numericCodeFor($amount->getCurrency());
     }
 
-    public function addValues(mixed $a, mixed $b): float
+    public function addValues(int|float|string $a, int|float|string $b): float
     {
         $moneyA = new Money($this->processValue($a), new Currency('RUB'));
 
         $moneyB = new Money($this->processValue($b), new Currency('RUB'));
 
-        $moneyResult = $moneyA->add($moneyB);
-
-        return ((int) $moneyResult->getAmount()) / 100;
+        return $this->processResult($moneyA->add($moneyB));
     }
 
-    public function subtarctValues(Money $a, Money $b): Money
+    public function subtarctValues(int|float|string $a, int|float|string $b): float
     {
-        return $a->subtract($b);
+        $moneyA = new Money($this->processValue($a), new Currency('RUB'));
+
+        $moneyB = new Money($this->processValue($b), new Currency('RUB'));
+
+        return $this->processResult($moneyA->subtract($moneyB));
     }
 
     private function processValue(int|float|string $value): int
@@ -49,5 +51,10 @@ class CurrencyHelper
         }
 
         return (int) ((float)$value * 100);
+    }
+
+    private function processResult(Money $result): float
+    {
+        return ((int) $result->getAmount()) / 100;
     }
 }
