@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Helper;
 
 use Money\Currencies\ISOCurrencies;
@@ -21,5 +23,15 @@ class CurrencyHelper
     public function numericCode(Money $amount): int
     {
         return (new ISOCurrencies())->numericCodeFor($amount->getCurrency());
+    }
+
+    public function addValues(Money $a, Money $b): Money
+    {
+        return $a->add($b);
+    }
+
+    public function subtarctValues(Money $a, Money $b): Money
+    {
+        return $a->subtract($b);
     }
 }

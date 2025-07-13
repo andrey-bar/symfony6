@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Tests;
 
-use Money\Money;
 use App\Helper\CurrencyHelper;
+use Money\Money;
 use PHPUnit\Framework\TestCase;
 
 class CurrencyHelperTest extends TestCase
@@ -29,5 +31,13 @@ class CurrencyHelperTest extends TestCase
 
         $this->assertEquals(978, $helper->numericCode(Money::EUR(10)));
         $this->assertEquals(840, $helper->numericCode(Money::USD(10)));
+    }
+
+    public function testAddValues(): void
+    {
+        $helper = new CurrencyHelper();
+
+        $money = $helper->addValues(Money::USD(10), Money::USD(20));
+        $this->assertEquals(30, $money->getAmount());
     }
 }
