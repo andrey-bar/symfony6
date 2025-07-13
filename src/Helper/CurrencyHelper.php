@@ -49,6 +49,6 @@ class CurrencyHelper
         }
 
         return (string) $value;*/
-        return $value * 100;
+        return (int) $value * 100;
     }
 }
